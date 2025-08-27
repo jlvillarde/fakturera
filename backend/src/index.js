@@ -9,18 +9,7 @@ import "./seed/translationSeed.js";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const app = Fastify({
-    logger: {
-        transport: {
-            target: "pino-pretty",
-            options: {
-                colorize: true,
-                translateTime: "HH:MM:ss",
-                ignore: "pid,hostname",
-            },
-        },
-    },
-});
+const app = Fastify();
 
 async function main() {
     try {
