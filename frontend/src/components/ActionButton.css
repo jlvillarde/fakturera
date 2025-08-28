@@ -1,0 +1,49 @@
+.action-button {
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 12px;
+    background-color: #fff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    font-size: 14px;
+    color: #333;
+    transition: transform 0.1s, box-shadow 0.1s;
+}
+
+.action-button:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    transform: translateY(-1px);
+}
+
+.action-button:active {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+    transform: translateY(0);
+}
+
+.action-button .icon {
+    display: flex;
+    align-items: center;
+}
+
+.action-button .text {
+    display: inline-block;
+}
+
+/* Hide text on smaller screens */
+@media (max-width: 1024px) {
+    .action-button .text {
+        display: none;
+    }
+
+    /* Optional: adjust padding when only icon is shown */
+    .action-button {
+        padding: 8px 30px;
+        /* smaller padding for icon-only button */
+        justify-content: center;
+        /* center icon */
+    }
+}

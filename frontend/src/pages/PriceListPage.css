@@ -1,0 +1,71 @@
+.price-list-page {
+    padding: 1rem;
+    margin: auto;
+    padding-bottom: 2rem;
+    ;
+}
+
+/* Main container for search + actions */
+.action-container {
+    flex-wrap: nowrap;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    /* flex-wrap: wrap; */
+}
+
+/* Search section */
+.search-section {
+    position: relative;
+    flex: 1;
+    /* take available space */
+    min-width: 200px;
+    /* don’t shrink too much */
+    max-width: 300px;
+    /* optional cap */
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* Action buttons */
+.action-buttons {
+    display: flex;
+    max-width: 400px;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+/* Styles specific for tablets */
+@media (max-width: 800px) {
+
+    .price-list-page {
+        padding: 0px;
+        width: 100%;
+    }
+
+    .action-container {
+        flex-direction: column;
+        gap: 10px;
+        /* stack vertically */
+        width: 100%;
+    }
+
+    .search-section,
+    .action-buttons {
+        width: 100%;
+        max-width: 100%;
+        /* full width */
+    }
+
+    .action-buttons {
+        justify-content: space-between;
+        /* space buttons evenly */
+        flex-wrap: wrap;
+        /* wrap if too many */
+        gap: 8px;
+    }
+
+}

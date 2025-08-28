@@ -3,6 +3,9 @@ import HomeLayout from "./layouts/HomeLayout";
 import { LanguageProvider } from "./contexts/LanguageContext";
 
 import "./App.css";
+import DashboardLayout from "./layouts/DashboardLayout";
+import DummyPage from "./pages/DummyPage";
+import PriceListPage from "./pages/PriceListPage";
 
 const router = createBrowserRouter([
   {
@@ -18,7 +21,26 @@ const router = createBrowserRouter([
       },
     ],
   },
+  {
+    path: "dashboard",
+    element: <DashboardLayout />,
+    children: [
+      {
+        index: true,
+        element: <Navigate to="pricelist" replace />
+      },
+      {
+        path: "pricelist",
+        element: <PriceListPage />
+      },
+      {
+        path: "*",
+        element: <DummyPage />
+      }
+    ],
+  },
 ]);
+
 
 function App() {
   return (

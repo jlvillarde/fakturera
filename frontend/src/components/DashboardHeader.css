@@ -1,0 +1,28 @@
+.dashboard-header {
+    background-color: rgb(37, 125, 239);
+    height: 85px;
+    position: sticky;
+    top: 0;
+    /* z-index: 120 0; */
+    display: flex;
+    align-items: center;
+}
+
+.dashboard-header .wrapper {
+    width: 80%;
+}
+
+.hamburger-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+    font-size: 1.5rem;
+    color: #fff;
+}
+
+@media (max-width: 1200px) {
+    .dashboard-header .wrapper {
+        width: 90%;
+    }
+}

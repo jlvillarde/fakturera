@@ -1,0 +1,71 @@
+.dashboard-layout {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/* Header always on top */
+.dashboard-layout>header {
+    flex-shrink: 0;
+}
+
+/* Main area with sidebar + content */
+.dashboard-main {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+    /* Prevent scrollbars on the main container */
+}
+
+/* Sidebar container */
+.sidebar-container {
+    width: 220px;
+    transition: transform 0.3s ease-in-out;
+    z-index: 10;
+}
+
+/* Content takes remaining space */
+.dashboard-content {
+    flex: 1;
+    padding: 1rem 4rem;
+    padding-bottom: 0.5rem;
+    background: #f8fafc;
+    overflow-y: hidden;
+}
+
+/* Responsive styles */
+@media (max-width: 1024px) {
+
+    .dashboard-content {
+        padding: 1rem 1rem;
+    }
+
+    .sidebar-container {
+        position: fixed;
+        top: 85px;
+        left: 0;
+        height: calc(100vh - 85px);
+        z-index: 1000;
+        transform: translateX(-115%);
+        will-change: transform;
+    }
+
+    .sidebar-container.open {
+        transform: translateX(0);
+    }
+
+    .dashboard-main.sidebar-open .dashboard-content {
+        margin-left: 0;
+    }
+
+    /* Backdrop for mobile when sidebar is open */
+    .sidebar-backdrop {
+        position: fixed;
+        top: 85px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.35);
+        z-index: 900;
+    }
+}

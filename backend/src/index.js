@@ -4,7 +4,7 @@ import { fileURLToPath } from "url";
 import fastifyStatic from "@fastify/static";
 
 import routes from "./route/index.js";
-import "./seed/translationSeed.js";
+import { seedProduct, seeedTranslation } from "./seed/index.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -13,9 +13,14 @@ const app = Fastify();
 
 async function main() {
     try {
+
+        // run seed for default database datas
+        await seedProduct();
+        await seeedTranslation();
+
         // Serve static files (React build)
         app.register(fastifyStatic, {
-            root: path.join(__dirname, "/static"), // or "../frontend/build"
+            root: path.join(__dirname, "/static"),
             prefix: "/", // all static assets served from root
         });
 

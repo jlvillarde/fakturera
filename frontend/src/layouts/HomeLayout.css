@@ -1,7 +1,7 @@
 .home {
     width: 100%;
     height: 100vh;
-    background-image: url(../assets/sverige43.jpg);
+    background-image: url('https://storage.123fakturera.se/public/wallpapers/sverige43.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -28,18 +28,20 @@ main {
 }
 
 .terms {
+    box-sizing: border-box;
     border-radius: 25px;
-    padding: 2.5rem;
+    padding: 3rem;
     background-color: #fff;
     color: #747070;
-    width: 50%;
+    max-width: 700px;
+    width: 90%;
     margin: 0 auto;
     margin-top: 2rem;
-    white-space: pre-line;
     line-height: 1.5;
     text-align: center;
-    font-weight: 600;
+    /* font-weight: 600; */
 }
+
 
 .close {
     font-size: 1rem;
@@ -51,4 +53,10 @@ main {
     outline: none;
     cursor: pointer;
     margin: 2rem 0 auto;
+}
+
+@media screen and (max-width: 868px) {
+    .terms {
+        font-size: 14px;
+    }
 }

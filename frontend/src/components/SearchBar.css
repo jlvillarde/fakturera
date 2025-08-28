@@ -1,0 +1,39 @@
+.search-bar {
+    position: relative;
+    width: 100%;
+    border-radius: 12px;
+    /* border: 2px solid rgb(136, 135, 135) */
+}
+
+.search-bar input {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 8px 32px 8px 12px;
+    color: rgb(61, 60, 60);
+    /* space for icon on the right */
+    border-radius: 15px;
+    border: 2px solid #ececec;
+    font-size: 12px;
+
+    /* remove default outline */
+    outline: none;
+    box-shadow: none;
+
+    /* optional: smooth border color on focus */
+    transition: border-color 0.2s;
+}
+
+.search-bar input:focus {
+    border-color: none;
+    /* optional: highlight on focus */
+}
+
+.search-bar .search-icon {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #5292f3;
+    pointer-events: none;
+    /* icon won’t block typing */
+}

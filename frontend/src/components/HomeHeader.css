@@ -50,21 +50,6 @@
     padding: 30px;
 }
 
-/* Large screens (>1200px) */
-@media screen and (min-width: 1201px) {
-    .hamburger {
-        display: none;
-    }
-
-    .nav-menu {
-        display: flex;
-    }
-
-    .right {
-        display: flex;
-    }
-}
-
 /* Tablet / Mobile (≤1200px) */
 @media screen and (max-width: 1200px) {
     .logo {

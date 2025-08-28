@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useLanguage } from "../contexts/LanguageContext";
 
 import "./SelectLanguage.css";
@@ -6,6 +6,7 @@ import "./SelectLanguage.css";
 export default function SelectLanguage() {
     const { language, countryCode, changeLanguage } = useLanguage();
     const [open, setOpen] = useState(false);
+    const dropdownRef = useRef(null);
 
     // List of available languages
     const languages = [
@@ -18,12 +19,31 @@ export default function SelectLanguage() {
         setOpen(false);
     };
 
+    // ✅ Close dropdown when clicking outside
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+                setOpen(false);
+            }
+        };
+
+        if (open) {
+            document.addEventListener("mousedown", handleClickOutside);
+        } else {
+            document.removeEventListener("mousedown", handleClickOutside);
+        }
+
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, [open]);
+
     return (
-        <div className="language-selector">
+        <div className="language-selector" ref={dropdownRef}>
             <div className="selected" onClick={() => setOpen(!open)}>
                 <span>{language}</span>
                 <img
-                    src={`${countryCode}.png`}
+                    src={`https://storage.123fakturere.no/public/flags/${countryCode}.png`}
                     alt={`${countryCode} flag`}
                     className="flag"
                 />
@@ -34,7 +54,7 @@ export default function SelectLanguage() {
                     {languages.map((lang) => (
                         <li key={lang.code} onClick={() => handleSelect(lang)}>
                             <img
-                                src={`${lang.countryCode}.png`}
+                                src={`https://storage.123fakturere.no/public/flags/${lang.countryCode}.png`}
                                 alt={`${lang.countryCode} flag`}
                                 className="flag"
                             />

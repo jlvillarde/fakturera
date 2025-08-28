@@ -15,7 +15,7 @@ export default function HomeHeader() {
         <header className="wrapper">
             {/* Left: Logo / Hamburger */}
             <div className="left">
-                <img src="/diamond.png" alt="logo" className="logo" />
+                <img src="https://storage.123fakturera.se/public/icons/diamond.png" alt="logo" className="logo" />
                 <div className="hamburger" onClick={toggleMenu}>
                     <FaBars />
                 </div>
