@@ -1,11 +1,15 @@
 .table-container {
-    max-height: 490px;
+    flex-grow: 1;
+    /* Allow the container to grow and fill available space */
     margin-top: 12px;
     overflow-y: auto;
+    /* Enable vertical scrolling */
     overflow-x: auto;
+    /* Enable horizontal scrolling */
     border-radius: 8px;
     position: relative;
     padding-left: 18px;
+    margin-bottom: 2rem;
     /* room for outside arrow */
 }
 
@@ -163,7 +167,7 @@ td:nth-child(7) {
 /* Below 764px → show only Product, Price, and Actions */
 @media (max-width: 800px) {
     .table-container {
-        max-height: 480px;
+        margin-bottom: 1rem;
     }
 
     td:nth-child(2) {

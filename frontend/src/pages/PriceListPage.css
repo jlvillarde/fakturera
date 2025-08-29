@@ -1,8 +1,9 @@
 .price-list-page {
     padding: 1rem;
-    margin: auto;
-    padding-bottom: 2rem;
-    ;
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Fill parent height */
+    overflow: hidden; /* Prevent this container from scrolling */
 }
 
 /* Main container for search + actions */
