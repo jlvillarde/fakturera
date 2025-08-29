@@ -14,7 +14,7 @@ const app = Fastify();
 async function main() {
     try {
 
-        // run seed for default database datas
+        // run seed for inserting default database data
         await seedProduct();
         await seeedTranslation();
 
@@ -24,11 +24,12 @@ async function main() {
             prefix: "/", // all static assets served from root
         });
 
-        // Catch-all route for React Router (important!)
+        // Catch-all route for React Router
         app.setNotFoundHandler((req, reply) => {
             reply.sendFile("index.html");
         });
 
+        // Register routes
         app.register(routes, { prefix: "/api" });
 
         await app.listen({ port: 3000, host: "0.0.0.0" });

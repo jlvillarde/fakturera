@@ -1,13 +1,23 @@
 .home {
     width: 100%;
+    min-height: 100vh;
+    position: relative;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+}
+
+.home::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
     height: 100vh;
     background-image: url('https://storage.123fakturera.se/public/wallpapers/sverige43.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    top: 0px;
-    overflow-y: auto;
-    /* padding-top: 2rem; */
+    z-index: -1;
 }
 
 main {
@@ -15,8 +25,9 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    padding-bottom: 3rem;
+    padding: 2rem 0 3rem 0;
+    width: 100%;
+    /* margin-bottom: 2rem; */
 }
 
 .title {
@@ -43,7 +54,8 @@ main {
 }
 
 
-.close {
+.close,
+.accept {
     font-size: 1rem;
     background: #089e1e;
     color: #fff;

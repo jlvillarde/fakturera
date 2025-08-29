@@ -38,9 +38,11 @@ export default function PriceListPage() {
                         onClick={() => console.log("Advanced Mode clicked")}
                     />
                 </div>
-
             </div>
+
+            {/* Pricelist Table */}
             <PricelistTable />
+
         </div>
     );
 }

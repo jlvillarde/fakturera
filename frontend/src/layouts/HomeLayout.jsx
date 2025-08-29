@@ -1,34 +1,47 @@
-import HomeHeader from "../components/HomeHeader"
-// import 'https://storage.123fakturera.se/public/wallpapers/sverige43.jpg'
+import HomeHeader from "../components/HomeHeader";
 import { useLanguage } from "../contexts/LanguageContext";
 import { useNavigate } from "react-router-dom";
 
 import "./HomeLayout.css";
 
 export default function HomeLayout() {
-
     const { translations } = useLanguage();
     const navigate = useNavigate();
-
 
     return (
         <div className="home">
             <HomeHeader />
-
             <main>
                 {/* Title */}
-                <div className="title">{translations.termsTitle}</div>
+                {translations.termsTitle && (
+                    <div className="title">{translations.termsTitle}</div>
+                )}
 
-                <button className="close">{translations.closeAndGoBack}</button>
+                {/* Close button */}
+                {translations.closeAndGoBack && (
+                    <button className="close">
+                        {translations.closeAndGoBack}
+                    </button>
+                )}
 
-                <div
-                    className="terms"
-                    dangerouslySetInnerHTML={{ __html: translations.terms }}
-                ></div>
+                {/* Terms */}
+                {translations.terms && (
+                    <div
+                        className="terms"
+                        dangerouslySetInnerHTML={{ __html: translations.terms }}
+                    />
+                )}
 
-
-                <button className="close" onClick={() => navigate("/dashboard")}>{translations.agreeAndContinue}</button>
+                {/* Accept button */}
+                {translations.agreeAndContinue && (
+                    <button
+                        className="accept"
+                        onClick={() => navigate("/dashboard")}
+                    >
+                        {translations.agreeAndContinue}
+                    </button>
+                )}
             </main>
-        </div >
-    )
+        </div>
+    );
 }

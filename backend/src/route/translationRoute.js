@@ -11,7 +11,7 @@ export default async function translationRoute(fastify) {
 
             return translation; // return translations JSON
         } catch (error) {
-            request.log.error(error); // log unexpected errors
+            request.log.error(error);
             return reply.code(500).send({ error: 'Internal server error' }); // return 500
         }
     });

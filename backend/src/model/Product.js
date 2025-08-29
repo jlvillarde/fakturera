@@ -2,6 +2,12 @@ import { DataTypes } from "sequelize";
 import sequelize from "../config/db.js";
 
 const Pricelist = sequelize.define("Product", {
+    id: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        autoIncrement: true,
+        primaryKey: true,
+    },
     articleNo: {
         type: DataTypes.STRING(50),
         allowNull: false,

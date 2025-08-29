@@ -1,56 +1,38 @@
-import { useState, useEffect, useRef } from "react";
-import { BsThreeDots } from "react-icons/bs";
-import { FiArrowDown } from "react-icons/fi";
+import { useRef, useState, useEffect } from "react";
 import { FiArrowRight } from "react-icons/fi";
+import { usePricelistData } from "./pricelist/usePricelistData";
+import { PricelistHeader } from "./pricelist/PricelistHeader";
+import { PricelistRow } from "./pricelist/PricelistRow";
 import "./PricelistTable.css";
 
 export default function PricelistTable() {
-    const [rows, setRows] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
+    // Fetches pricelist data using a custom hook, managing loading, error, and data modification states.
+    const { rows, loading, error, handleChange, isRowModified, saveRow, savingIndex } = usePricelistData();
+    // Manages the currently selected row index.
     const [selectedIndex, setSelectedIndex] = useState(null);
+    // Manages the vertical position of the arrow indicator.
     const [arrowTop, setArrowTop] = useState(0);
+    // Ref for the container element to handle scrolling.
     const containerRef = useRef(null);
+    // Ref to store references to each row element for position calculations.
     const rowRefs = useRef([]);
 
-    // Fetch products from API
-    useEffect(() => {
-        const fetchProducts = async () => {
-            try {
-                const res = await fetch("/api/products");
-                if (!res.ok) throw new Error("Failed to fetch products");
-                const data = await res.json();
-                setRows(data);
-            } catch (err) {
-                setError(err.message);
-            } finally {
-                setLoading(false);
-            }
-        };
-
-        fetchProducts();
-    }, []);
-
-    const handleChange = (index, field, value) => {
-        const newRows = [...rows];
-        newRows[index][field] = value;
-        setRows(newRows);
-    };
-
+    // Calculates and updates the arrow's position to align with the selected row.
     const updateArrowPosition = (index) => {
-        const container = containerRef.current;
         const rowEl = rowRefs.current[index];
-        if (!container || !rowEl) return;
+        if (!rowEl) return;
         const offsetTop = rowEl.offsetTop;
         const height = rowEl.offsetHeight;
         setArrowTop(offsetTop + Math.max(0, height / 2) - 10);
     };
 
+    // Handles click events on a row, setting it as selected and updating the arrow position.
     const handleRowClick = (index) => {
         setSelectedIndex(index);
         updateArrowPosition(index);
     };
 
+    // Attaches and cleans up scroll and resize event listeners to keep the arrow position updated.
     useEffect(() => {
         const onScrollOrResize = () => {
             if (selectedIndex !== null) updateArrowPosition(selectedIndex);
@@ -64,108 +46,34 @@ export default function PricelistTable() {
         };
     }, [selectedIndex]);
 
+    // Displays a loading message while data is being fetched.
     if (loading) return <p>Loading...</p>;
+    // Displays an error message if data fetching fails.
     if (error) return <p style={{ color: "red" }}>Error: {error}</p>;
 
+    // Renders the main table structure and maps over the data to render each row.
     return (
-
         <div className="table-container" ref={containerRef}>
-
             <table className="pricelist-table">
-                <thead>
-                    <tr>
-                        <th>
-                            <span className="th-with-icon">
-                                Article No.
-                                <FiArrowDown className="th-icon article" />
-                            </span>
-                        </th>
-                        <th>
-                            <span className="th-with-icon">
-                                Product/Service
-                                <FiArrowDown className="th-icon product" />
-                            </span>
-                        </th>
-                        <th>In Price</th>
-                        <th>Price</th>
-                        <th>Unit</th>
-                        <th>In Stock</th>
-                        <th>Description</th>
-                        <th></th>
-                    </tr>
-                </thead>
+                <PricelistHeader />
                 <tbody>
                     {rows.map((row, index) => (
-                        <tr
-                            key={row.id || index}
+                        <PricelistRow
+                            key={row.clientKey}
                             ref={(el) => (rowRefs.current[index] = el)}
-                            className={selectedIndex === index ? "selected" : ""}
+                            row={row}
+                            index={index}
+                            selected={selectedIndex === index}
                             onClick={() => handleRowClick(index)}
-                        >
-                            <td>
-                                <input
-                                    type="text"
-                                    value={row.articleNo || ""}
-                                    onChange={(e) =>
-                                        handleChange(index, "articleNo", e.target.value)
-                                    }
-                                />
-                            </td>
-                            <td>
-                                <input
-                                    type="text"
-                                    value={row.product || ""}
-                                    onChange={(e) => handleChange(index, "product", e.target.value)}
-                                />
-                            </td>
-                            <td>
-                                <input
-                                    type="number"
-                                    value={row.inPrice || ""}
-                                    onChange={(e) =>
-                                        handleChange(index, "inPrice", e.target.value)
-                                    }
-                                />
-                            </td>
-                            <td>
-                                <input
-                                    type="number"
-                                    value={row.price || ""}
-                                    onChange={(e) => handleChange(index, "price", e.target.value)}
-                                />
-                            </td>
-                            <td>
-                                <input
-                                    type="text"
-                                    value={row.unit || ""}
-                                    onChange={(e) => handleChange(index, "unit", e.target.value)}
-                                />
-                            </td>
-                            <td>
-                                <input
-                                    type="number"
-                                    value={row.stock || ""}
-                                    onChange={(e) => handleChange(index, "stock", e.target.value)}
-                                />
-                            </td>
-                            <td>
-                                <input
-                                    type="text"
-                                    value={row.description || ""}
-                                    onChange={(e) =>
-                                        handleChange(index, "description", e.target.value)
-                                    }
-                                />
-                            </td>
-                            <td className="actions-cell">
-                                <button className="action-btn">
-                                    <BsThreeDots size={18} />
-                                </button>
-                            </td>
-                        </tr>
+                            onChange={handleChange}
+                            onSave={saveRow}
+                            isModified={isRowModified(index)}
+                            saving={savingIndex === index}
+                        />
                     ))}
                 </tbody>
             </table>
+            {/* Renders an arrow next to the selected row for better user orientation. */}
             {selectedIndex !== null && (
                 <div className="row-pointer" style={{ top: `${arrowTop}px` }}>
                     <FiArrowRight size={16} />
