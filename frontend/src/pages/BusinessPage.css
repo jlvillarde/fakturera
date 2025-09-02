@@ -1,0 +1,124 @@
+.business-page {
+    color: rgb(70, 70, 70);
+    box-sizing: border-box;
+    width: 100%;
+    max-height: calc(100vh - 90px);
+    overflow-x: hidden;
+    position: relative;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.business-action-buttons {
+    z-index: 0;
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    width: 100%;
+    box-shadow: 0 0px 30px rgba(147, 174, 239, 0.614);
+    padding: 1rem;
+    background-color: white;
+}
+
+.business-action-buttons button svg {
+    font-size: 1rem;
+    color: rgb(80, 113, 244);
+}
+
+.business-action-buttons button {
+    border-radius: 1rem;
+    border: none;
+    padding: 5px 10px;
+    background-color: white;
+    box-shadow: 0 0px 8px rgba(147, 174, 239, 0.614);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.business-action-buttons button.active {
+    border: 1px solid rgba(82, 129, 239, 0.901);
+    box-shadow: 0 0 20px rgba(120, 156, 241, 0.658);
+}
+
+.business-action-buttons button:hover {
+    box-shadow: 0 0px 10px rgba(74, 115, 211, 0.784);
+    transition: ease;
+}
+
+.business-content {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 4rem;
+}
+
+.business-details {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.business-profile {
+    position: relative;
+    border-left: 2px solid rgba(213, 213, 213, 0.315);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    justify-content: center;
+    padding-left: 5rem;
+}
+
+@media (max-width: 1200px) {
+    .business-profile {
+        align-items: center;
+        padding-left: 0;
+    }
+
+}
+
+@media (max-width: 1024px) {
+
+    .business-action-buttons {
+        gap: 1rem;
+    }
+
+    .business-action-buttons button {
+        padding: 5px 3rem;
+    }
+
+    .business-action-buttons button p {
+        display: none;
+    }
+
+    .business-action-buttons button svg {
+        font-size: 1.2rem;
+    }
+
+    .business-content {
+        grid-template-columns: 1fr;
+        padding-top: 2rem;
+        gap: 2rem;
+    }
+
+    .business-profile {
+        padding-left: 0;
+        border-left: none;
+    }
+}
+
+@media (max-width: 800px) {
+    .business-action-buttons {
+        flex: none;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        justify-items: center;
+    }
+
+    .business-action-buttons button {
+        max-width: 200px;
+    }
+}

@@ -8,7 +8,7 @@
     /* Enable horizontal scrolling */
     border-radius: 8px;
     position: relative;
-    padding-left: 18px;
+    padding: 0 18px;
     margin-bottom: 2rem;
     /* room for outside arrow */
 }
@@ -75,7 +75,7 @@ tbody tr.selected {
 /* Input inside cells */
 td input {
     width: 90%;
-    padding: 3px 5px;
+    padding: 5px 8px;
     border: 1px solid #92b2f68d;
     border-radius: 9999px;
     /* pill shape */
@@ -140,7 +140,7 @@ td:nth-child(7) {
     width: 25%;
 }
 
-/* Default: show everything */
+/* Default: sho uw everything */
 .pricelist-table th,
 .pricelist-table td {
     display: table-cell;

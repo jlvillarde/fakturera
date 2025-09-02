@@ -25,6 +25,7 @@
 }
 
 .action-button .icon {
+
     display: flex;
     align-items: center;
 }
@@ -45,5 +46,9 @@
         /* smaller padding for icon-only button */
         justify-content: center;
         /* center icon */
+    }
+
+    .action-button .icon {
+        font-size: 1rem;
     }
 }

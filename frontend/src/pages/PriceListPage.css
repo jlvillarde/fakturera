@@ -1,9 +1,12 @@
 .price-list-page {
-    padding: 1rem;
+    padding: 1rem 4rem;
+    padding-bottom: 0.5rem;
     display: flex;
     flex-direction: column;
-    height: 100%; /* Fill parent height */
-    overflow: hidden; /* Prevent this container from scrolling */
+    height: 100%;
+    /* Fill parent height */
+    overflow: hidden;
+    /* Prevent this container from scrolling */
 }
 
 /* Main container for search + actions */
@@ -31,9 +34,9 @@
 }
 
 /* Action buttons */
-.action-buttons {
+.action-container .action-buttons {
     display: flex;
-    max-width: 400px;
+    max-width: 500px;
     gap: 12px;
     flex-wrap: wrap;
     justify-content: flex-start;
@@ -61,11 +64,12 @@
         /* full width */
     }
 
-    .action-buttons {
+
+    .action-container .action-buttons {
         justify-content: space-between;
-        /* space buttons evenly */
+        width: 100%;
+        max-width: 100%;
         flex-wrap: wrap;
-        /* wrap if too many */
         gap: 8px;
     }
 

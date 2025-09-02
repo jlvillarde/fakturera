@@ -6,6 +6,7 @@ import "./App.css";
 import DashboardLayout from "./layouts/DashboardLayout";
 import DummyPage from "./pages/DummyPage";
 import PriceListPage from "./pages/PriceListPage";
+import BusinessPage from "./pages/businessPage";
 
 const router = createBrowserRouter([
   {
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
       {
         path: "pricelist",
         element: <PriceListPage />
+      },
+      {
+        path: "business",
+        element: <BusinessPage />
       },
       {
         path: "*",

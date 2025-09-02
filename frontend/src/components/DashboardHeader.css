@@ -1,15 +1,15 @@
 .dashboard-header {
     background-color: rgb(37, 125, 239);
     height: 85px;
+    width: 100%;
     position: sticky;
     top: 0;
-    /* z-index: 120 0; */
     display: flex;
     align-items: center;
 }
 
 .dashboard-header .wrapper {
-    width: 80%;
+    width: 90%;
 }
 
 .hamburger-btn {

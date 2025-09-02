@@ -27,8 +27,8 @@ async function main() {
         // Catch-all route for React Router
         app.setNotFoundHandler((req, reply) => {
             reply.sendFile("index.html");
-        });
 
+        });
         // Register routes
         app.register(routes, { prefix: "/api" });
 

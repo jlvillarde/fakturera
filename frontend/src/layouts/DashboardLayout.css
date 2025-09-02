@@ -7,6 +7,7 @@
 /* Header always on top */
 .dashboard-layout>header {
     flex-shrink: 0;
+    z-index: 1000;
 }
 
 /* Main area with sidebar + content */
@@ -27,8 +28,7 @@
 /* Content takes remaining space */
 .dashboard-content {
     flex: 1;
-    padding: 1rem 4rem;
-    padding-bottom: 0.5rem;
+
     background: #f8fafc;
     overflow-y: hidden;
 }

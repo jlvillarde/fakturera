@@ -1,6 +1,7 @@
 .language-selector {
     position: relative;
     cursor: pointer;
+    z-index: 100;
 }
 
 .language-selector .selected {
