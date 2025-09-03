@@ -12,11 +12,14 @@ button:hover {
 }
 
 .business-action-buttons {
+    position: relative;
+    top: 0px;
     z-index: 0;
     display: flex;
     justify-content: center;
     gap: 3rem;
     width: 100%;
+    box-sizing: border-box;
     box-shadow: 0 0px 30px rgba(147, 174, 239, 0.614);
     padding: 1rem;
     background-color: white;
@@ -40,36 +43,52 @@ button:hover {
 }
 
 .business-action-buttons button.active {
-    border: 1px solid rgba(82, 129, 239, 0.901);
+    border: 2px solid rgba(119, 155, 237, 0.732);
     box-shadow: 0 0 20px rgba(120, 156, 241, 0.658);
 }
 
 .business-action-buttons button:hover {
-    box-shadow: 0 0px 10px rgba(74, 115, 211, 0.784);
+    box-shadow: 0 0px 10px rgba(123, 156, 234, 0.882);
     transition: ease;
+}
+
+.business-page .container {
+    width: 100%;
 }
 
 .business-content {
     width: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
     padding-top: 4rem;
+    gap: 2rem;
+    justify-content: center;
 }
 
 .business-details {
     position: relative;
     display: flex;
     justify-content: center;
+    flex: 1;
+    min-width: 350px;
+    max-width: 500px;
+    padding: 0 2rem;
+}
+
+.business-content .border {
+    border-left: 2px solid rgba(213, 213, 213, 0.315);
+    max-width: 2px;
 }
 
 .business-profile {
+    padding: 0 2rem;
     position: relative;
-    border-left: 2px solid rgba(213, 213, 213, 0.315);
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
     justify-content: center;
-    padding-left: 5rem;
+    flex: 1;
+    min-width: 350px;
+    max-width: 400px;
 }
 
 @media (max-width: 1200px) {
@@ -77,10 +96,20 @@ button:hover {
         align-items: center;
         padding-left: 0;
     }
-
 }
 
 @media (max-width: 1024px) {
+    .business-content .border {
+        display: none;
+    }
+
+    .business-content {
+        flex-direction: column;
+        align-items: center;
+        padding-top: 2rem;
+        gap: 2rem;
+        overflow-x: hidden;
+    }
 
     .business-action-buttons {
         gap: 1rem;
@@ -98,27 +127,63 @@ button:hover {
         font-size: 1.2rem;
     }
 
-    .business-content {
-        grid-template-columns: 1fr;
-        padding-top: 2rem;
-        gap: 2rem;
+    .business-details {
+        padding: 0;
+        width: 100%;
+        max-width: 500px;
+        min-width: unset;
+        flex: none;
     }
 
     .business-profile {
-        padding-left: 0;
+        padding: 0;
         border-left: none;
+        width: 100%;
+        max-width: 500px;
+        min-width: unset;
+        flex: none;
     }
 }
 
 @media (max-width: 800px) {
+
+    .business-content {
+        padding: 1rem;
+        box-sizing: border-box;
+    }
+
     .business-action-buttons {
         flex: none;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
+        display: flex;
+        justify-content: space-evenly;
         justify-items: center;
     }
 
     .business-action-buttons button {
         max-width: 200px;
+    }
+}
+
+@media (max-width: 600px) {
+    .business-content {
+        padding-top: 1rem;
+        gap: 1rem;
+    }
+
+    .business-details,
+    .business-profile {
+        width: calc(100% - 1rem);
+        max-width: none;
+        min-width: unset;
+    }
+
+    .business-action-buttons {
+        padding: 0.5rem;
+        gap: 0.5rem;
+    }
+
+    .business-action-buttons button {
+        padding: 5px 1rem;
+        font-size: 0.9rem;
     }
 }

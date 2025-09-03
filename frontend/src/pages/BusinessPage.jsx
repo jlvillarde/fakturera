@@ -35,15 +35,21 @@ export default function BusinessPage() {
                 </button>
             </div>
 
-            <div className='business-content'>
+            <div className='container'>
+                <div className='business-content'>
 
-                <div className='business-details'>
-                    <BusinessDetails />
-                </div>
+                    <div className='business-details'>
+                        <BusinessDetails />
+                    </div>
 
-                <div className='business-profile'>
-                    <BusinessLogoSettings />
-                    <BusinessProfile />
+                    <div className='border'>
+
+                    </div>
+
+                    <div className='business-profile'>
+                        <BusinessLogoSettings />
+                        <BusinessProfile />
+                    </div>
                 </div>
 
             </div>

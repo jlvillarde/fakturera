@@ -53,8 +53,9 @@
     .action-container {
         flex-direction: column;
         gap: 10px;
-        /* stack vertically */
         width: 100%;
+        padding: 1rem;
+        box-sizing: border-box;
     }
 
     .search-section,

@@ -10,12 +10,10 @@
     z-index: 1000;
 }
 
-/* Main area with sidebar + content */
 .dashboard-main {
     display: flex;
     flex: 1;
     overflow: hidden;
-    /* Prevent scrollbars on the main container */
 }
 
 /* Sidebar container */
@@ -35,10 +33,6 @@
 
 /* Responsive styles */
 @media (max-width: 1024px) {
-
-    .dashboard-content {
-        padding: 1rem 1rem;
-    }
 
     .sidebar-container {
         position: fixed;

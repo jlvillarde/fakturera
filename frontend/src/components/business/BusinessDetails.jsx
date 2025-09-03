@@ -1,29 +1,45 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import './BusinessDetails.css'
 
 export default function BusinessDetails() {
 
-    const [details, setDetails] = useState({
-        name: 'Latfakturra Ltd',
-        address: 'PB 2826',
-        address2: 'ads',
-        postCode: '1287',
-        city: 'Taby',
-        reference: undefined,
-        phone: '919 00 177',
-        email: 'emanuel.imanuelsen@outlook.com',
-        account: undefined,
-        orgNumber: undefined,
-        homepage: '',
-    })
+    const [details, setDetails] = useState({})
 
-    const handleChange = (e) => {
-        const { name, value } = e.target
+    async function loadBusiness() {
+        try {
+            const id = 1
+            const res = await fetch(`/api/business/${id}`)
+            if (!res.ok) throw new Error("Failed to fetch business")
+            const data = await res.json()
+            setDetails(data)
+        } catch (error) {
+            console.error(error)
+        }
+    }
+
+    useEffect(() => {
+        loadBusiness()
+    }, [])
+
+
+    const handleChange = (event) => {
+        const { name, value } = event.target
         setDetails(prev => ({ ...prev, [name]: value }))
     }
 
-
+    const saveUpdate = async () => {
+        try {
+            const id = 1
+            await fetch(`/api/business/${id}`, {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(details)
+            })
+        } catch (error) {
+            console.log(error);
+        }
+    }
 
     return (
         <div className='form'>
@@ -35,6 +51,7 @@ export default function BusinessDetails() {
                     name="name" id="name"
                     value={details.name}
                     onChange={handleChange}
+                    onBlur={saveUpdate}
                     placeholder="Enter name" />
             </div>
 
@@ -45,6 +62,7 @@ export default function BusinessDetails() {
                     id="address"
                     value={details.address}
                     onChange={handleChange}
+                    onBlur={saveUpdate}
                     placeholder="Enter address" />
             </div>
 
@@ -55,6 +73,7 @@ export default function BusinessDetails() {
                     id="address2"
                     value={details.address2}
                     onChange={handleChange}
+                    onBlur={saveUpdate}
                     placeholder="Enter address line 2" />
             </div>
 
@@ -65,6 +84,7 @@ export default function BusinessDetails() {
                     id="postcode"
                     value={details.postCode}
                     onChange={handleChange}
+                    onBlur={saveUpdate}
                     placeholder="Postcode" />
 
                 <label htmlFor="city">City</label>
@@ -73,6 +93,7 @@ export default function BusinessDetails() {
                     id="city"
                     value={details.city}
                     onChange={handleChange}
+                    onBlur={saveUpdate}
                     placeholder="City" />
             </div>
 
@@ -83,6 +104,7 @@ export default function BusinessDetails() {
                     id="reference"
                     value={details.reference}
                     onChange={handleChange}
+                    onBlur={saveUpdate}
                     placeholder="Enter" />
             </div>
 
@@ -93,6 +115,7 @@ export default function BusinessDetails() {
                     id="phone"
                     value={details.phone}
                     onChange={handleChange}
+                    onBlur={saveUpdate}
                     placeholder="Enter phone number" />
             </div>
 
@@ -103,6 +126,7 @@ export default function BusinessDetails() {
                     id="email"
                     value={details.email}
                     onChange={handleChange}
+                    onBlur={saveUpdate}
                     placeholder="Enter email address" />
             </div>
 
@@ -113,6 +137,7 @@ export default function BusinessDetails() {
                     id="account"
                     value={details.account}
                     onChange={handleChange}
+                    onBlur={saveUpdate}
                     placeholder="Enter account number" />
             </div>
 
@@ -123,6 +148,7 @@ export default function BusinessDetails() {
                     id="org-number"
                     value={details.orgNumber}
                     onChange={handleChange}
+                    onBlur={saveUpdate}
                     placeholder="Enter org number" />
             </div>
 
@@ -133,6 +159,7 @@ export default function BusinessDetails() {
                     id="homepage"
                     value={details.homepage}
                     onChange={handleChange}
+                    onBlur={saveUpdate}
                     placeholder="Will not show on invoice if left empty" />
             </div>
 
