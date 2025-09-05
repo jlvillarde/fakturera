@@ -1,14 +1,15 @@
 .sidebar {
     max-width: 210px;
     background: #fff;
-    color: #2a2929;
+    color: #7a7979e5;
+    font-weight: bold;
     height: calc(100vh - 85px);
     display: flex;
     flex-direction: column;
     padding: 0px 1rem;
     font-size: small;
     z-index: 10;
-    box-shadow: 4px 0 6px rgba(119, 119, 119, 0.2);
+    box-shadow: 4px 0 8px rgba(147, 147, 147, 0.149);
 }
 
 .sidebar-header {
@@ -43,9 +44,14 @@
     position: relative;
 }
 
+.menu-link img {
+    width: 20px;
+    height: 20px;
+}
+
 .menu-link:hover {
-    background: #6797da;
-    color: #fff;
+    background: #9abdee99;
+    color: #286cf5;
 }
 
 /* Green dot indicator for active page */
@@ -64,7 +70,17 @@
 
 /* Logout button styling */
 .logout .menu-link {
-    color: #f87171;
     margin-top: auto;
     margin-left: 1.3rem;
+}
+
+.logout .menu-link img {
+    width: 20px;
+    height: 20px;
+}
+
+@media (max-width: 1200px) {
+    .sidebar {
+        max-width: 100%;
+    }
 }

@@ -1,24 +1,19 @@
 import { NavLink } from "react-router-dom";
-import {
-    FiFileText, FiUsers, FiBriefcase, FiBook, FiTag,
-    FiLayers, FiAlertCircle, FiGift, FiPackage,
-    FiUserCheck, FiDownload, FiLogOut
-} from "react-icons/fi";
 import "./Sidebar.css";
 
 export default function Sidebar() {
     const menuItems = [
-        { path: "/dashboard/invoices", label: "Invoices", icon: <FiFileText /> },
-        { path: "/dashboard/customers", label: "Customers", icon: <FiUsers /> },
-        { path: "/dashboard/business", label: "My Business", icon: <FiBriefcase /> },
-        { path: "/dashboard/journal", label: "Invoice Journal", icon: <FiBook /> },
-        { path: "/dashboard/pricelist", label: "Price List", icon: <FiTag /> },
-        { path: "/dashboard/multi-invoicing", label: "Multiple Invoicing", icon: <FiLayers /> },
-        { path: "/dashboard/unpaid", label: "Unpaid Invoices", icon: <FiAlertCircle /> },
-        { path: "/dashboard/offer", label: "Offer", icon: <FiGift /> },
-        { path: "/dashboard/inventory", label: "Inventory Control", icon: <FiPackage /> },
-        { path: "/dashboard/member", label: "Member Invoicing", icon: <FiUserCheck /> },
-        { path: "/dashboard/import-export", label: "Import/Export", icon: <FiDownload /> },
+        { path: "/dashboard/invoices", label: "Invoices", icon: 'invoice' },
+        { path: "/dashboard/customers", label: "Customers", icon: 'customers' },
+        { path: "/dashboard/business", label: "My Business", icon: 'my-business' },
+        { path: "/dashboard/journal", label: "Invoice Journal", icon: 'invoice-journal' },
+        { path: "/dashboard/pricelist", label: "Price List", icon: 'pricelist' },
+        { path: "/dashboard/multi-invoicing", label: "Multiple Invoicing", icon: 'multiple-invoice' },
+        { path: "/dashboard/unpaid", label: "Unpaid Invoices", icon: 'unpaid-invoice' },
+        { path: "/dashboard/offer", label: "Offer", icon: 'offer' },
+        { path: "/dashboard/inventory", label: "Inventory Control", icon: 'inventory-control' },
+        { path: "/dashboard/member", label: "Member Invoicing", icon: 'member-invoicing' },
+        { path: "/dashboard/import-export", label: "Import/Export", icon: 'export-import' },
     ];
 
     return (
@@ -35,7 +30,7 @@ export default function Sidebar() {
                             className={({ isActive }) => `menu-link ${isActive ? "active" : ""}`}
                         >
                             <span className="indicator"></span>
-                            {item.icon}
+                            <img src={`/icons/${item.icon}.png`} alt={item.label} />
                             <span>{item.label}</span>
                         </NavLink>
                     </li>
@@ -43,7 +38,7 @@ export default function Sidebar() {
 
                 <li className="logout">
                     <div className="menu-link">
-                        <FiLogOut />
+                        <img src={`/icons/logout.png`} />
                         <span>Log out</span>
                     </div>
                 </li>

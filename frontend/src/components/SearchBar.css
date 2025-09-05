@@ -8,19 +8,20 @@
 .search-bar input {
     box-sizing: border-box;
     width: 100%;
-    padding: 8px 32px 8px 12px;
-    color: rgb(61, 60, 60);
-    /* space for icon on the right */
+    padding: 6px 32px 6px 12px;
+    color: rgba(87, 86, 86, 0.796);
     border-radius: 15px;
     border: 2px solid #ececec;
-    font-size: 12px;
 
-    /* remove default outline */
     outline: none;
     box-shadow: none;
 
     /* optional: smooth border color on focus */
     transition: border-color 0.2s;
+}
+
+.search-bar input::placeholder {
+    color: rgba(150, 149, 149, 0.796);
 }
 
 .search-bar input:focus {
@@ -33,7 +34,6 @@
     right: 8px;
     top: 50%;
     transform: translateY(-50%);
-    color: #5292f3;
+    color: #84bdf6;
     pointer-events: none;
-    /* icon won’t block typing */
 }

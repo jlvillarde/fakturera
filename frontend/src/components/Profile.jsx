@@ -8,7 +8,7 @@ export default function Profile() {
             <div className="avatar">
                 {/* Profile image (replace src with real one if available) */}
                 <img
-                    src="https://via.placeholder.com/48"
+                    src="/icons/profile.png"
                     alt="Profile"
                     className="avatar-img"
                     onError={(e) => {

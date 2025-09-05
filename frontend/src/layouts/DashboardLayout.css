@@ -27,16 +27,18 @@
 .dashboard-content {
     flex: 1;
 
-    background: #f8fafc;
+    background: #fff;
     overflow-y: hidden;
 }
 
 /* Responsive styles */
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
 
     .sidebar-container {
         position: fixed;
         top: 85px;
+        /* width: 30%; */
+        border: 1px solid white;
         left: 0;
         height: calc(100vh - 85px);
         z-index: 1000;

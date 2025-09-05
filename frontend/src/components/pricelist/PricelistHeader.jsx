@@ -1,6 +1,11 @@
+import { useMediaQuery } from "../../hooks/useMediaQuery";
 import { FiArrowDown } from "react-icons/fi";
 
 export function PricelistHeader() {
+
+    const isNarrow = useMediaQuery('(max-width: 1200px)')
+
+
     return (
         <thead>
             <tr>
@@ -18,8 +23,22 @@ export function PricelistHeader() {
                 </th>
                 <th>In Price</th>
                 <th>Price</th>
-                <th>Unit</th>
-                <th>In Stock</th>
+
+                {
+                    isNarrow ? (
+                        <>
+                            <th>In Stock</th>
+                            <th>Unit</th>
+                        </>
+
+                    ) : (
+                        <>
+                            <th>Unit</th>
+                            <th>In Stock</th>
+                        </>
+                    )
+                }
+
                 <th>Description</th>
                 <th></th>
             </tr>

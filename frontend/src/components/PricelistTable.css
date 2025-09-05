@@ -1,16 +1,21 @@
 .table-container {
+    box-flex-group: #fff;
     flex-grow: 1;
-    /* Allow the container to grow and fill available space */
     margin-top: 12px;
     overflow-y: auto;
-    /* Enable vertical scrolling */
-    overflow-x: auto;
-    /* Enable horizontal scrolling */
+    overflow-x: visible;
     border-radius: 8px;
     position: relative;
-    padding: 0 18px;
     margin-bottom: 2rem;
-    /* room for outside arrow */
+    color: rgb(117, 117, 117);
+    padding-left: 20px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    scroll-behavior: smooth;
+}
+
+.table-container::-webkit-scrollbar {
+    display: none;
 }
 
 /* Table styling */
@@ -19,25 +24,24 @@ table {
     width: 100%;
     border-collapse: collapse;
     background: #fff;
+    scroll-behavior: smooth;
 }
 
-/* Keep header fixed */
 thead {
     padding: 3px;
     position: sticky;
     top: 0;
-    background: #f9fafb;
+    background: #fff;
     z-index: 2;
+    padding-bottom: 10px;
 }
 
 th {
     text-align: left;
     padding: 5px;
     font-weight: 600;
-    color: #374151;
 }
 
-/* Header icons next to titles */
 .th-with-icon {
     display: inline-flex;
     align-items: center;
@@ -50,56 +54,50 @@ th {
 
 .th-icon.article {
     color: #60a5fa;
-    /* light blue */
 }
 
 .th-icon.product {
     color: #43eb80;
-    /* light green */
 }
 
 td {
-    padding: 5px;
+    box-sizing: border-box;
+    padding: 4px 10px 4px 0px;
 }
 
-/* Scroll row hover */
 tbody tr:hover {
     background: #f9fafb;
 }
 
-/* Selected row highlight */
 tbody tr.selected {
     background: #eef6ff;
 }
 
-/* Input inside cells */
 td input {
-    width: 90%;
-    padding: 5px 8px;
-    border: 1px solid #92b2f68d;
-    border-radius: 9999px;
-    /* pill shape */
-    /* font-size: 14px; */
+    font-weight: 500;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 2px 8px;
+    padding-top: 3px;
+    border: 2px solid #aec6fa8d;
+    border-radius: 10px;
     outline: none;
     transition: all 0.2s ease;
-    /* background-color: #fafafa; */
 }
 
-/* Focus effect */
 td input:focus {
-    border-color: #5686eed8;
+    border-color: #6895f5c0;
     background-color: #fff;
-    box-shadow: 0 0 0 2px rgba(48, 106, 231, 0.2);
 }
 
-/* Hover row effect */
 tbody tr:hover {
     background: #f9fafb;
 }
 
 .action-cell {
-    text-align: center;
     width: 50px;
+    display: flex;
+    justify-content: center;
 }
 
 .action-btn {
@@ -107,17 +105,18 @@ tbody tr:hover {
     border: none;
     cursor: pointer;
     font-size: 12px;
-    color: #555;
+    color: #5998f0;
+    margin: 0 auto;
 }
 
 .action-btn:hover {
     color: #000;
 }
 
-/* Outside row pointer */
 .row-pointer {
     position: absolute;
-    left: -2px;
+    left: 0px;
+    z-index: 100;
     color: #2563eb;
     display: flex;
     align-items: center;
@@ -129,24 +128,19 @@ tbody tr:hover {
 
 td:nth-child(2) {
     min-width: 200px;
-    /* adjust as needed */
     width: 25%;
 }
 
-/* Description */
 td:nth-child(7) {
     min-width: 200px;
-    /* adjust as needed */
     width: 25%;
 }
 
-/* Default: sho uw everything */
 .pricelist-table th,
 .pricelist-table td {
     display: table-cell;
 }
 
-/* Below 1024px → hide In Price + Description */
 @media (max-width: 1200px) {
 
 
@@ -164,7 +158,6 @@ td:nth-child(7) {
     }
 }
 
-/* Below 764px → show only Product, Price, and Actions */
 @media (max-width: 800px) {
     .table-container {
         margin-bottom: 1rem;
@@ -178,7 +171,6 @@ td:nth-child(7) {
     /* Article No */
     .pricelist-table td:nth-child(1),
     .pricelist-table th:nth-child(3),
-    /* In Price (already hidden above, but safe) */
     .pricelist-table td:nth-child(3),
     /* Price (keep this, don’t hide) */
     .pricelist-table th:nth-child(5),

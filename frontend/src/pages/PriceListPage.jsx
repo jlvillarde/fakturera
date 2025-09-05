@@ -21,19 +21,19 @@ export default function PriceListPage() {
                 <div className="action-buttons">
                     <ActionButton
                         text="New Product"
-                        icon={<FaPlus />}
+                        icon='/icons/add-product.png'
                         color="#28a745"  // green
                         onClick={() => console.log("New Product clicked")}
                     />
                     <ActionButton
                         text="Print List"
-                        icon={<FaPrint />}
+                        icon='/icons/print.png'
                         color="#17a2b8"  // teal
                         onClick={() => console.log("Print clicked")}
                     />
                     <ActionButton
                         text="Advanced Mode"
-                        icon={<FaSlidersH />}
+                        icon='/icons/advance-mode.png'
                         color="#17a2b8"
                         onClick={() => console.log("Advanced Mode clicked")}
                     />

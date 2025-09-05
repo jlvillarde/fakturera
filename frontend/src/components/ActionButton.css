@@ -5,13 +5,18 @@
     gap: 6px;
     padding: 8px 12px;
     border: none;
-    border-radius: 12px;
+    border-radius: 13px;
     background-color: #fff;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.136);
     cursor: pointer;
     font-size: 14px;
-    color: #333;
+    color: #333333c1;
     transition: transform 0.1s, box-shadow 0.1s;
+}
+
+.action-button img {
+    width: 14px;
+    height: 13px;
 }
 
 .action-button:hover {
@@ -35,7 +40,7 @@
 }
 
 /* Hide text on smaller screens */
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
     .action-button .text {
         display: none;
     }
@@ -50,5 +55,17 @@
 
     .action-button .icon {
         font-size: 1rem;
+    }
+
+    .action-button img {
+        width: 18px;
+        height: 17px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .action-button img {
+        width: 20px;
+        height: 19px;
     }
 }
