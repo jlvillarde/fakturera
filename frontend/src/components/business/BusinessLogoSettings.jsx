@@ -24,12 +24,18 @@ export default function BusinessLogoSettings() {
 
             <div className="action-buttons">
                 <div>Choose Logo</div>
-                <button>Upload new <FaCloudUploadAlt /></button>
+                <button>
+                    Upload New
+                    <img src={`/icons/upload.png`} />
+                </button>
             </div>
 
             <div className="action-buttons">
                 <div>Preview Logo</div>
-                <button>Upload preview <FaSearchPlus /></button>
+                <button>
+                    Upload preview
+                    <img src={`/icons/preview.png`} />
+                </button>
             </div>
 
 

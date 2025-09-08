@@ -21,13 +21,18 @@ button:hover {
     width: 100%;
     box-sizing: border-box;
     box-shadow: 0 0px 30px rgba(147, 174, 239, 0.614);
-    padding: 1rem;
+    padding: 0.8rem;
     background-color: white;
 }
 
 .business-action-buttons button svg {
     font-size: 1rem;
     color: rgb(80, 113, 244);
+}
+
+.business-action-buttons button img {
+    width: 15px;
+    height: 15px;
 }
 
 .business-action-buttons button {
@@ -96,6 +101,7 @@ button:hover {
         align-items: center;
         padding-left: 0;
     }
+
 }
 
 @media (max-width: 1024px) {
@@ -125,6 +131,11 @@ button:hover {
 
     .business-action-buttons button svg {
         font-size: 1.2rem;
+    }
+
+    .business-action-buttons button img {
+        width: 20px;
+        height: 20px;
     }
 
     .business-details {

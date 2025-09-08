@@ -1,12 +1,12 @@
 import { FaUserCircle } from "react-icons/fa";
-import "./Profile.css"; // optional for styling
+import "./Profile.css";
 
 export default function Profile() {
     return (
         <div className="profile">
             {/* Profile picture wrapper */}
             <div className="avatar">
-                {/* Profile image (replace src with real one if available) */}
+                {/* Profile image */}
                 <img
                     src="/icons/profile.png"
                     alt="Profile"

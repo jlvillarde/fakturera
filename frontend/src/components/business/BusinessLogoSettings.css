@@ -44,6 +44,13 @@
 .business-logo-container .action-buttons button svg {
     font-size: 1rem;
     color: hsl(228, 88%, 64%);
+
+}
+
+.business-logo-container .action-buttons button img {
+    width: 15px;
+    height: 15px;
+    margin: 0;
 }
 
 .business-logo-container .action-buttons button {
@@ -55,7 +62,6 @@
     box-shadow: 0 0px 5px rgba(147, 174, 239, 0.614);
     display: flex;
     justify-content: space-between;
-    align-items: center;
     gap: 10px;
 }
 

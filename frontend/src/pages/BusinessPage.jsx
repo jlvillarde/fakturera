@@ -19,19 +19,19 @@ export default function BusinessPage() {
             <div className='business-action-buttons'>
                 <button className='active'>
                     <p>Business Details</p>
-                    <TbListDetails />
+                    <img src={`/icons/business-details.png`} />
                 </button>
                 <button>
                     <p>Settings</p>
-                    <IoSettingsSharp />
+                    <img src={`/icons/business-settings.png`} />
                 </button>
                 <button>
                     <p>Standard texts</p>
-                    <MdNotes />
+                    <img src={`/icons/standard-text.png`} />
                 </button>
                 <button>
                     <p>Go to invoices</p>
-                    <CgNotes />
+                    <img src={`/icons/invoice.png`} />
                 </button>
             </div>
 

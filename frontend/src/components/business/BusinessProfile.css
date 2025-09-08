@@ -47,6 +47,12 @@
     color: rgb(80, 113, 244);
 }
 
+.business-profile-action button img {
+    width: 15px;
+    height: 15px;
+    margin: 0;
+}
+
 .business-profile-action button {
     flex: 1;
     color: rgba(127, 127, 127, 0.868);
@@ -57,7 +63,7 @@
     box-shadow: 0 0px 5px rgba(147, 174, 239, 0.614);
     display: flex;
     justify-content: space-evenly;
-    align-items: center;
+    /* align-items: center; */
     gap: 10px;
 }
 

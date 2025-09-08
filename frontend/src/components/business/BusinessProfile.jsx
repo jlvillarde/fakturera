@@ -13,8 +13,17 @@ export default function BusinessProfile() {
             />
 
             <div className='business-profile-action'>
-                <button>Edit Original <MdEditDocument /></button>
-                <button>Upload New <FaCloudUploadAlt /> </button>
+                <button>
+                    Edit Original
+                    <img src={`/icons/upload.png`} />
+                </button>
+
+                <button>
+                    Upload New
+                    <img src={`/icons/upload.png`} />
+                </button>
+                {/* <button>Edit Original <MdEditDocument /></button>
+                <button>Upload New <FaCloudUploadAlt /> </button> */}
             </div>
 
         </div>

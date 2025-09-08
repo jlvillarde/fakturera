@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import { FaBars } from "react-icons/fa"; // hamburger icon
 import SelectLanguage from "../components/SelectLanguage";
 import Profile from "./Profile";
