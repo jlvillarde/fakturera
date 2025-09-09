@@ -68,9 +68,9 @@
 }
 
 .business-profile-action button:hover {
-    background: #c3d2f4;
+    background: #b7c8f2b4;
     color: rgba(74, 113, 239, 0.889);
-    box-shadow: 0 0px 10px rgba(89, 132, 234, 0.508);
+    box-shadow: 0 0px 10px rgba(170, 192, 242, 0.678);
     transition: ease-in;
 }
 
